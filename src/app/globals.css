@@ -3,6 +3,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --dim-grey: #6d6466;
+  --ash-grey: #9f9f92;
+  --tee-green: #c9d5b5;
 }
 
 @theme inline {
@@ -14,8 +17,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #e3dbdb;
+    --foreground: #4e3d42;
   }
 }
 
@@ -23,4 +26,51 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.border-primary {
+  border: 2px solid var(--foreground);
+}
+
+.btn-primary {
+  background-color: var(--foreground);
+  color: var(--background);
+  padding: 8px 24px;
+}
+
+.btn-primary:hover {
+  background-color: var(--ash-grey);
+  color: var(--dim-grey);
+}
+
+input[type="date"] {
+  pointer-events: auto;
+  appearance: auto;
+}
+
+.circle {
+  width: 12px;
+  height: 12px;
+  aspect-ratio: 1;
+  background-color: var(--ash-grey);
+  border-radius: 50%;
+  animation: fade 1.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  opacity: 0;
+}
+
+.circle-2 {
+  animation-delay: 0.2s;
+}
+.circle-3 {
+  animation-delay: 0.4s;
+}
+
+@keyframes fade {
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
 }
